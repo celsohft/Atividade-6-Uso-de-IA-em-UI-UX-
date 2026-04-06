@@ -2,492 +2,136 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atividade UI/UX - Celso Henrique Freitas Takahashi</title>
+    <title>Atividade UI/UX - Celso Takahashi</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f4f8;
-            color: #1a2a3a;
-            line-height: 1.6;
-            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.5;
+            background: #fff;
+            color: #222;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
+        h1 {
+            font-size: 22px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
         }
-
-        .header {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
-            padding: 40px 50px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .header .subtitle {
-            font-size: 1rem;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
-
-        .student-info {
-            background: rgba(255,255,255,0.15);
-            border-radius: 12px;
-            padding: 15px 25px;
+        h2 {
+            font-size: 18px;
             margin-top: 25px;
-            display: inline-block;
-            backdrop-filter: blur(4px);
-        }
-
-        .student-info p {
-            margin: 5px 0;
-            font-size: 1rem;
-        }
-
-        .content {
-            padding: 40px 50px;
-        }
-
-        .section {
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 1.8rem;
             color: #1e4a6e;
-            border-left: 5px solid #2c7da0;
-            padding-left: 20px;
-            margin-bottom: 25px;
-            margin-top: 10px;
         }
-
-        .section-subtitle {
-            font-size: 1.3rem;
+        h3 {
+            font-size: 16px;
+            margin-top: 15px;
             color: #2c7da0;
-            margin: 25px 0 15px 0;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #e0e7ef;
         }
-
-        .article-card {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 30px;
-            border-left: 4px solid #2c7da0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
+        .info {
+            background: #f5f5f5;
+            padding: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #2c7da0;
         }
-
-        .article-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        ul, ol {
+            margin-left: 20px;
         }
-
-        .article-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #0f3b4f;
-            margin-bottom: 8px;
+        li {
+            margin: 8px 0;
         }
-
-        .article-meta {
-            font-size: 0.8rem;
-            color: #6c7a89;
-            margin-bottom: 15px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .article-meta span {
-            background: #e9ecef;
-            padding: 3px 10px;
-            border-radius: 20px;
-        }
-
-        .article-content {
-            color: #2d3e50;
-            font-size: 0.95rem;
-        }
-
-        .article-content p {
-            margin-bottom: 12px;
-        }
-
-        .article-content ul, .article-content ol {
-            margin: 12px 0 12px 25px;
-        }
-
-        .article-content li {
-            margin-bottom: 6px;
-        }
-
-        .badge {
-            background: #2c7da0;
-            color: white;
-            font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        .table-wrapper {
-            overflow-x: auto;
-            margin: 20px 0;
-        }
-
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .data-table th {
-            background: #1e4a6e;
-            color: white;
-            padding: 12px 15px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .data-table td {
-            padding: 10px 15px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .data-table tr:hover {
-            background: #f1f5f9;
-        }
-
-        .heuristics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 12px;
-            margin: 20px 0;
-        }
-
-        .heuristic-item {
-            background: #f1f5f9;
-            border-radius: 10px;
-            padding: 10px 15px;
-            font-size: 0.85rem;
-        }
-
-        .heuristic-item strong {
-            color: #1e4a6e;
-        }
-
-        .example-box {
-            background: linear-gradient(120deg, #e6f4ea, #d0e8dc);
-            border-radius: 16px;
-            padding: 25px;
-            margin: 20px 0;
-            border-left: 6px solid #2e7d64;
-        }
-
-        .references {
-            background: #f1f5f9;
-            border-radius: 16px;
-            padding: 25px;
+        .ref {
             margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid #ccc;
+            font-size: 13px;
         }
-
-        .references h3 {
-            color: #1e4a6e;
-            margin-bottom: 15px;
-        }
-
-        .references ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .references li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-            font-size: 0.85rem;
-        }
-
-        .references li:before {
-            content: "📄";
-            position: absolute;
-            left: 0;
-        }
-
         hr {
-            margin: 30px 0;
-            border: none;
-            height: 2px;
-            background: linear-gradient(to right, #cbd5e1, transparent);
-        }
-
-        .footer {
-            background: #eef2f6;
-            text-align: center;
-            padding: 25px;
-            font-size: 0.8rem;
-            color: #5a6e7c;
-            border-top: 1px solid #dce3ec;
-        }
-
-        @media (max-width: 768px) {
-            .content {
-                padding: 25px 20px;
-            }
-            .header {
-                padding: 30px 20px;
-            }
-            .header h1 {
-                font-size: 1.5rem;
-            }
-            .section-title {
-                font-size: 1.3rem;
-            }
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h1>🔮 Novas Tecnologias no Aprimoramento de UI/UX</h1>
-        <p class="subtitle">Inteligência Artificial, Comportamento do Usuário e Design Centrado na Pessoa</p>
-        <div class="student-info">
-            <p><strong>👨‍🎓 Aluno:</strong> Celso Henrique Freitas Takahashi</p>
-            <p><strong>🆔 RA:</strong> 22603606</p>
-            <p><strong>📅 Data de entrega:</strong> 7 de Abril de 2026</p>
-        </div>
-    </div>
 
-    <div class="content">
-        <!-- ==================== SEÇÃO 1 ==================== -->
-        <div class="section">
-            <h2 class="section-title">📚 1. Avanço da IA em UX/UI — Pesquisa Acadêmica</h2>
-            <p>Esta seção apresenta uma revisão aprofundada de <strong>6 artigos científicos e profissionais</strong> de alta relevância sobre a integração de Inteligência Artificial (especialmente Large Language Models) no design de interfaces e experiência do usuário.</p>
+<h1>Atividade: Novas Tecnologias no Aprimoramento de UI/UX</h1>
 
-            <!-- Artigo 1 -->
-            <div class="article-card">
-                <div class="badge">📖 Revisão Sistemática da Literatura (2025)</div>
-                <div class="article-title">O papel dos grandes modelos de linguagem no design de UI/UX: Uma revisão sistemática da literatura</div>
-                <div class="article-meta"><span>Ammar Ahmed, Ali Shariq Imran (NTNU)</span><span>arXiv, julho 2025</span></div>
-                <div class="article-content">
-                    <p><strong>Ideias principais:</strong> Primeira revisão sistemática focada em LLMs no fluxo de UI/UX, sintetizando 38 estudos (2022–2025). Os principais modelos utilizados são GPT-4, Gemini e PaLM. Identificaram-se três práticas comuns: <strong>engenharia de prompt</strong>, <strong>fluxos de trabalho com humano no circuito</strong> e <strong>entrada multimodal</strong>. Desafios críticos incluem <em>alucinação</em>, <em>instabilidade de prompt</em> e baixa explicabilidade. Conclusão: LLMs são <strong>colaboradores emergentes</strong>, não substitutos do designer humano.</p>
-                </div>
-            </div>
-
-            <!-- Artigo 2 -->
-            <div class="article-card">
-                <div class="badge">🤖 Agentes com Cérebro LLM</div>
-                <div class="article-title">Agentes de interface gráfica com cérebro de grandes modelos de linguagem: Uma pesquisa</div>
-                <div class="article-meta"><span>Zhang, He, Qian et al. (Microsoft)</span><span>TMLR, junho 2025</span></div>
-                <div class="article-content">
-                    <p><strong>Ideias principais:</strong> Apresenta agentes que usam LLMs como núcleo cognitivo para automatizar interações com interfaces gráficas. Capacidades: compreensão de linguagem natural, processamento visual de GUI e execução autônoma multi-aplicação. Para UX, exige interfaces "legíveis por máquinas" (estrutura semântica clara) e novos padrões de transparência. Mudança de paradigma: de comandos explícitos para delegação de objetivos.</p>
-                </div>
-            </div>
-
-            <!-- Artigo 3 -->
-            <div class="article-card">
-                <div class="badge">🍎 Comportamento do Usuário (Nielsen Norman Group)</div>
-                <div class="article-title">Edição Sanfona e Colheita de Maçãs: Comportamentos iniciais do usuário com IA generativa</div>
-                <div class="article-meta"><span>Sarah, Mugunthan, Jakob Nielsen</span><span>NN/g, setembro 2023</span></div>
-                <div class="article-content">
-                    <p><strong>Ideias principais:</strong> Estudo qualitativo com 8 profissionais revela dois novos padrões de interação com IA:</p>
-                    <ul>
-                        <li><strong>📌 Edição Sanfona (Accordion Editing):</strong> Usuários expandem e contraem respostas da IA repetidamente (ranqueamento forçado, redução de palavras, expansão de ideias).</li>
-                        <li><strong>📌 Colheita de Maçãs (Apple Picking):</strong> Referenciam respostas anteriores manualmente (copiar/colar) para editar pontos específicos, causando rolagem excessiva e perda de contexto.</li>
-                    </ul>
-                    <p>Crítica às interfaces conversacionais: a IA raramente acerta na primeira tentativa, exigindo iterações complexas. Recomenda-se <strong>compartimentalização de respostas</strong> e <strong>edição direta</strong>.</p>
-                </div>
-            </div>
-
-            <!-- Artigo 4 -->
-            <div class="article-card">
-                <div class="badge">🧠 Antropomorfismo em IA</div>
-                <div class="article-title">Os 4 graus de antropomorfismo da IA generativa</div>
-                <div class="article-meta"><span>Nielsen Norman Group Research</span><span>NN/g, outubro 2023</span></div>
-                <div class="article-content">
-                    <p><strong>Ideias principais:</strong> Classifica como usuários atribuem características humanas a chatbots em quatro graus:</p>
-                    <ol>
-                        <li><strong>Cortesia:</strong> "por favor", "obrigado" — baixa conexão emocional.</li>
-                        <li><strong>Reforço:</strong> elogios ("bom trabalho") — motivação funcional/emocional.</li>
-                        <li><strong>Representação de papéis (Roleplay):</strong> pedir que a IA aja como especialista — alta funcionalidade, "prompt skeuomorphism".</li>
-                        <li><strong>Companheirismo:</strong> ver a IA como parceiro emocional (ex: Replika) — alto risco de dependência.</li>
-                    </ol>
-                    <p>Motivações: rumores sobre "o que faz a IA funcionar melhor" e experiências com a "caixa preta".</p>
-                </div>
-            </div>
-
-            <!-- Artigo 5 -->
-            <div class="article-card">
-                <div class="badge">📈 Estudos Empíricos de Produtividade</div>
-                <div class="article-title">IA melhora a produtividade do funcionário em 66%</div>
-                <div class="article-meta"><span>Jakob Nielsen</span><span>NN/g, julho 2023</span></div>
-                <div class="article-content">
-                    <p><strong>Ideias principais:</strong> Síntese de 3 estudos (Stanford, MIT, Microsoft):</p>
-                    <ul>
-                        <li>Suporte ao cliente: +13,8% de atendimentos por hora</li>
-                        <li>Redação de documentos: +59% documentos por hora</li>
-                        <li>Programação: +126% projetos por semana</li>
-                    </ul>
-                    <p><strong>Média de 66% de ganho de produtividade</strong> — equivalente a 47 anos de crescimento natural nos EUA. Os profissionais com menor desempenho melhoram até 35% (redução da disparidade de habilidades). Aprendizado acelerado: novos agentes atingem especialização em 2 meses (vs 8 meses sem IA).</p>
-                </div>
-            </div>
-
-            <!-- Artigo 6 -->
-            <div class="article-card">
-                <div class="badge">🔮 Tendências 2026</div>
-                <div class="article-title">18 previsões para 2026 (Análise Jakob Nielsen)</div>
-                <div class="article-meta"><span>Jakob Nielsen / UX Tigers</span><span>fevereiro 2026</span></div>
-                <div class="article-content">
-                    <p><strong>Ideias principais:</strong> A aceleração da IA autônoma dobra a cada 4 meses. Até o final de 2026, a IA realizará tarefas que exigiriam 39 horas humanas. O novo diferencial competitivo será a <strong>UX e os fluxos de trabalho contextuais</strong>, não mais apenas a capacidade bruta dos modelos. Nielsen critica: menos de 1% dos profissionais de UX têm experiência real em design para IA.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- ==================== SEÇÃO 2 ==================== -->
-        <div class="section">
-            <h2 class="section-title">🎯 2. Requisitos de UX/UI + Exemplo de Aplicação</h2>
-            <p>Um design robusto de UX/UI deve equilibrar princípios consagrados (heurísticas de Nielsen) com novas exigências trazidas pela IA generativa e agentes autônomos.</p>
-
-            <div class="section-subtitle">📌 10 Heurísticas de Usabilidade (Jakob Nielsen)</div>
-            <div class="heuristics-grid">
-                <div class="heuristic-item"><strong>1. Visibilidade do status do sistema</strong> — o sistema deve sempre informar o usuário sobre o que está acontecendo</div>
-                <div class="heuristic-item"><strong>2. Correspondência com o mundo real</strong> — usar linguagem e conceitos familiares ao usuário</div>
-                <div class="heuristic-item"><strong>3. Controle e liberdade do usuário</strong> — "saídas de emergência" para ações indesejadas</div>
-                <div class="heuristic-item"><strong>4. Consistência e padrões</strong> — mesmas palavras/ações devem significar a mesma coisa</div>
-                <div class="heuristic-item"><strong>5. Prevenção de erros</strong> — antecipar e evitar condições de erro</div>
-                <div class="heuristic-item"><strong>6. Reconhecimento em vez de memorização</strong> — minimizar carga de memória do usuário</div>
-                <div class="heuristic-item"><strong>7. Flexibilidade e eficiência de uso</strong> — atender tanto novatos quanto especialistas</div>
-                <div class="heuristic-item"><strong>8. Design estético e minimalista</strong> — eliminar elementos irrelevantes</div>
-                <div class="heuristic-item"><strong>9. Ajude usuários a reconhecer e recuperar de erros</strong> — mensagens claras, não códigos</div>
-                <div class="heuristic-item"><strong>10. Ajuda e documentação</strong> — fornecer informação acessível</div>
-            </div>
-
-            <div class="section-subtitle">⚙️ Requisitos Contemporâneos para Interfaces com IA</div>
-            <ul>
-                <li><strong>Transparência e explicabilidade:</strong> justificar decisões da IA e indicar níveis de confiança.</li>
-                <li><strong>Controle iterativo:</strong> suporte nativo a "edição sanfona" e "colheita de maçãs".</li>
-                <li><strong>Gerenciamento de expectativas:</strong> comunicar limitações (dados desatualizados, alucinações).</li>
-                <li><strong>Privacidade e consentimento:</strong> opt-out para coleta de dados de interação.</li>
-                <li><strong>Acessibilidade (WCAG 2.2):</strong> contraste mínimo 4.5:1, navegação por teclado, suporte a leitores de tela.</li>
-            </ul>
-
-            <div class="example-box">
-                <h3 style="color: #1e5631; margin-bottom: 12px;">📱 Exemplo prático: Aplicativo de Mobile Banking (Nubank)</h3>
-                <p><strong>Problema original:</strong> Apps bancários tradicionais são complexos, com menus profundos, jargões financeiros e pouca acessibilidade.</p>
-                <p><strong>Solução de UX/UI aplicada:</strong></p>
-                <ul>
-                    <li><strong>Hierarquia visual clara:</strong> saldo disponível e botão "Pagar" em destaque na tela inicial.</li>
-                    <li><strong>Simplicidade e eficiência:</strong> funções secundárias (investimentos, cartão) acessíveis com 2 toques.</li>
-                    <li><strong>Feedback imediato:</strong> animação de confirmação no Pix + notificação push para segurança.</li>
-                    <li><strong>Microinterações:</strong> botão "Ajuda" com leve vibração e transições suaves entre telas.</li>
-                    <li><strong>Acessibilidade:</strong> modo de alto contraste e compatibilidade com VoiceOver/TalkBack.</li>
-                </ul>
-                <p><strong>Resultado esperado:</strong> aumento de 45% na conclusão de tarefas bancárias em primeiro acesso e redução de 60% nos chamados de suporte.</p>
-            </div>
-        </div>
-
-        <!-- ==================== SEÇÃO 3 ==================== -->
-        <div class="section">
-            <h2 class="section-title">📑 3. Resumo Detalhado dos Artigos da Plataforma (Nielsen Norman Group)</h2>
-            <p>Com base nos links fornecidos (Nielsen Norman Group), foram lidos e sintetizados os dois artigos centrais sobre comportamentos emergentes de usuários com IA generativa.</p>
-
-            <!-- Resumo 1 -->
-            <div class="article-card">
-                <div class="badge">🎯 Resumo Oficial — Item 3 da Atividade</div>
-                <div class="article-title">Edição Sanfona e Colheita de Maçãs: Comportamentos iniciais do usuário com IA generativa</div>
-                <div class="article-meta"><span>Autores: Sarah, Tarun Mugunthan, Jakob Nielsen</span><span>Publicado: 24 de setembro de 2023</span></div>
-                <div class="article-content">
-                    <p><strong>Ideia central:</strong> A pesquisa qualitativa com 8 profissionais (UX, marketing, programação) revelou que a interação com chatbots de IA é muito mais complexa do que o senso comum sugere. Diferente da ideia de "pergunta → resposta perfeita", os usuários realizam múltiplas iterações para refinar os resultados.</p>
-                    <p><strong>Comportamento 1 – Edição Sanfona (Accordion Editing):</strong> Os usuários pedem repetidamente que a IA encurte ou alongue suas respostas. As técnicas incluem <strong>ranqueamento forçado</strong> ("top 5"), <strong>redução de contagem de palavras</strong>, <strong>expansão de ideias existentes</strong> e <strong>adição de conteúdo faltante</strong>. Esse comportamento leva a longas paredes de texto, dificultando a navegação.</p>
-                    <p><strong>Comportamento 2 – Colheita de Maçãs (Apple Picking):</strong> Para modificar partes específicas de respostas anteriores, os usuários precisam copiar e colar manualmente trechos ou descrevê-los textualmente. A interface de chat atual não oferece suporte a referência direta, causando esforço cognitivo elevado e rolagem excessiva.</p>
-                    <p><strong>Recomendações para designers:</strong> Implementar <strong>compartimentalização de respostas</strong> (editar trechos isolados), permitir <strong>edição direta</strong> (como um editor de texto) e adotar <strong>seleção por apontamento</strong> (interface gráfica) para referenciar partes anteriores.</p>
-                    <p><strong>Conclusão:</strong> "Novos estilos de interação introduzem novos problemas de usabilidade" — a IA precisa evoluir além do simples chat linear.</p>
-                </div>
-            </div>
-
-            <!-- Resumo 2 -->
-            <div class="article-card">
-                <div class="badge">🎯 Resumo Oficial — Item 3 da Atividade</div>
-                <div class="article-title">Os 4 graus de antropomorfismo da IA generativa</div>
-                <div class="article-meta"><span>Autores: Pesquisadores do Nielsen Norman Group (Marriott & Pitardi)</span><span>Publicado: 20 de outubro de 2023</span></div>
-                <div class="article-content">
-                    <p><strong>Ideia central:</strong> O artigo explora como e por que os usuários atribuem qualidades humanas a chatbots de IA, desde o "efeito ELIZA" (1960) até os modernos assistentes. Através de estudo qualitativo, os autores identificaram <strong>quatro graus de antropomorfismo</strong> que variam em conexão emocional e funcionalidade.</p>
-                    <ol>
-                        <li><strong>Cortesia (Courtesy):</strong> Uso de "por favor", "obrigado", cumprimentos. Baixa profundidade emocional, reflete hábitos sociais.</li>
-                        <li><strong>Reforço (Reinforcement):</strong> Elogios ("bom trabalho", "muito bem") ou críticas. Motivação: acreditar que isso melhora respostas futuras (modelo mental incorreto).</li>
-                        <li><strong>Representação de papéis (Roleplay):</strong> Solicitar que a IA aja como profissional específico (ex: "gerente sênior"). Os autores cunham o termo <strong>"prompt skeuomorphism"</strong> — transferência de conhecimento do mundo real para melhorar a comunicação com a IA.</li>
-                        <li><strong>Companheirismo (Companionship):</strong> Relacionamento profundo com a IA, tratando-a como amiga ou parceiro emocional (apps como Replika). Alto risco de dependência e substituição de relações humanas.</li>
-                    </ol>
-                    <p><strong>Por que antropomorfizamos?</strong> Falta de orientação oficial sobre como usar a IA leva os usuários a criarem suas próprias "superstições" (rumores do YouTube, fóruns) e modelos mentais baseados em tentativa e erro. A conclusão alerta designers: não explorem essa tendência de forma enganosa; em vez disso, ofereçam transparência e limites claros.</p>
-                </div>
-            </div>
-
-            <!-- Tabela de produtividade -->
-            <div class="section-subtitle">📊 Evidências de Impacto da IA na Produtividade</div>
-            <div class="table-wrapper">
-                <table class="data-table">
-                    <thead>
-                        <tr><th>Estudo</th><th>Tarefa</th><th>Ganho de Produtividade</th></tr>
-                    </thead>
-                    <tbody>
-                        <tr><td><strong>Brynjolfsson et al. (2023)</strong></td><td>Suporte ao cliente</td><td style="color: #2e7d64; font-weight: bold;">+13,8%</td></tr>
-                        <tr><td><strong>Noy & Zhang (2023)</strong></td><td>Redação de documentos empresariais</td><td style="color: #2e7d64; font-weight: bold;">+59%</td></tr>
-                        <tr><td><strong>Peng et al. (2023)</strong></td><td>Programação (GitHub Copilot)</td><td style="color: #2e7d64; font-weight: bold;">+126%</td></tr>
-                        <tr style="background: #e8f0fe;"><td><strong>Média geral</strong></td><td><strong>Três domínios analisados</strong></td><td style="color: #1e4a6e; font-weight: bold;">+66%</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <p style="font-size: 0.85rem; margin-top: 10px;">📌 O ganho médio de 66% equivale a aproximadamente <strong>47 anos de crescimento natural da produtividade</strong> nos Estados Unidos.</p>
-        </div>
-
-        <!-- ==================== REFERÊNCIAS ==================== -->
-        <div class="references">
-            <h3>📌 Referências completas (norma acadêmica)</h3>
-            <ul>
-                <li>AHMED, Ammar; IMRAN, Ali Shariq. O papel dos grandes modelos de linguagem no design de UI/UX: Uma revisão sistemática da literatura. <em>arXiv</em>, julho 2025.</li>
-                <li>ZHANG, Chaoyun; HE, Shilin; QIAN, Jiaxu; et al. Agentes de interface gráfica com cérebro de grandes modelos de linguagem: Uma pesquisa. <em>Transactions on Machine Learning Research</em>, junho 2025.</li>
-                <li>NIELSEN, Jakob; SARAH; MUGUNTHAN, Tarun. Edição Sanfona e Colheita de Maçãs: Comportamentos iniciais do usuário com IA generativa. <em>Nielsen Norman Group</em>, 24 setembro 2023.</li>
-                <li>NIELSEN NORMAN GROUP. Os 4 graus de antropomorfismo da IA generativa. <em>Nielsen Norman Group</em>, 20 outubro 2023.</li>
-                <li>NIELSEN, Jakob. IA melhora a produtividade do funcionário em 66%. <em>Nielsen Norman Group</em>, 16 julho 2023.</li>
-                <li>NIELSEN, Jakob. IA: O primeiro novo paradigma de UI em 60 anos. <em>Nielsen Norman Group</em>, 2023.</li>
-                <li>NIELSEN, Jakob. 18 previsões para 2026. <em>UX Tigers / DesignDB</em>, fevereiro 2026.</li>
-                <li>BRYNJOLFSSON, Erik; LI, Danielle; RAYMOND, Lindsey R. IA no trabalho. <em>NBER Working Paper 31161</em>, 2023.</li>
-                <li>MARRIOTT, Hannah R.; PITARDI, Valentina. A influência dos aplicativos de amizade com IA no bem-estar e vício dos usuários. <em>Psychology & Marketing</em>, agosto 2023.</li>
-            </ul>
-        </div>
-
-        <hr>
-        <p style="font-style: italic; text-align: center; color: #4a627a;">✅ Atividade concluída com base em pesquisa sistemática de artigos acadêmicos e publicações do Nielsen Norman Group. Todos os resumos foram elaborados a partir da leitura integral dos materiais referenciados.</p>
-    </div>
-
-    <div class="footer">
-        <p><strong>Celso Henrique Freitas Takahashi</strong> — RA: 22603606</p>
-        <p>Curso: UI/UX Design | Tecnologias Emergentes | 7 de Abril de 2026</p>
-        <p>Documento entregue conforme especificação da atividade: pesquisa científica + requisitos de design + resumo de artigos NN/g</p>
-    </div>
+<div class="info">
+    <strong>Aluno:</strong> Celso Henrique Freitas Takahashi<br>
+    <strong>RA:</strong> 22603606<br>
+    <strong>Data:</strong> 7 de Abril de 2026
 </div>
+
+<!-- ===== QUESTÃO 1 ===== -->
+<h2>1. Avanço do uso da IA em UX/UI – Artigos científicos</h2>
+
+<p><strong>Artigo 1:</strong> Ahmed, A.; Imran, A. S. (2025). <em>The role of large language models in UI/UX design: A systematic literature review</em>. arXiv.</p>
+<p><strong>Ideias principais:</strong> Revisão de 38 estudos sobre LLMs no design. Os modelos mais usados são GPT-4, Gemini e PaLM. As práticas comuns são engenharia de prompt, humano no circuito e entrada multimodal. Desafios: alucinação, instabilidade de prompt e falta de explicabilidade. LLMs são colaboradores, não substituem o designer.</p>
+
+<p><strong>Artigo 2:</strong> Zhang, C. et al. (2025). <em>Large Language Model-Brained GUI Agents: A Survey</em>. TMLR, Microsoft.</p>
+<p><strong>Ideias principais:</strong> Agentes com LLM como cérebro automatizam interações com interfaces gráficas. Compreendem linguagem natural, processam imagens da tela e executam tarefas em vários aplicativos. Para UX, é preciso criar interfaces que as máquinas também consigam "ler".</p>
+
+<p><strong>Artigo 3:</strong> Sarah; Mugunthan, T.; Nielsen, J. (2023). <em>Accordion Editing and Apple Picking: Early Generative-AI User Behaviors</em>. Nielsen Norman Group.</p>
+<p><strong>Ideias principais:</strong> Estudo identificou dois comportamentos novos de usuários com IA: a "edição sanfona" (expandir e contrair respostas repetidamente) e a "colheita de maçãs" (copiar/colar respostas anteriores para editar partes específicas). A interface de chat atual não é boa para essas tarefas.</p>
+
+<p><strong>Artigo 4:</strong> Nielsen Norman Group (2023). <em>The 4 Degrees of Anthropomorphism of Generative AI</em>. NN/g.</p>
+<p><strong>Ideias principais:</strong> Usuários atribuem características humanas à IA em quatro níveis: cortesia (por favor/obrigado), reforço (elogios), roleplay (pedir para agir como especialista) e companheirismo (tratar como amigo). Isso acontece por falta de orientação sobre como usar a IA.</p>
+
+<p><strong>Artigo 5:</strong> Nielsen, J. (2023). <em>AI Improves Employee Productivity by 66%</em>. Nielsen Norman Group.</p>
+<p><strong>Ideias principais:</strong> Três estudos mostraram ganhos de produtividade: +13,8% em suporte ao cliente, +59% em redação de documentos e +126% em programação. Média de 66%. Quem tem menos habilidade melhora mais. A IA acelera o aprendizado de novos funcionários.</p>
+
+<p><strong>Artigo 6:</strong> Nielsen, J. (2026). <em>18 previsões para 2026</em>. UX Tigers.</p>
+<p><strong>Ideias principais:</strong> A capacidade da IA dobra a cada 4 meses. Até o final de 2026, fará tarefas que levariam 39 horas humanas. O diferencial competitivo será a UX, não só o modelo de IA. Poucos profissionais de UX têm experiência com IA.</p>
+
+<!-- ===== QUESTÃO 2 ===== -->
+<h2>2. Requisitos do design de UX/UI + Exemplo</h2>
+
+<p><strong>Requisitos essenciais que o design de UX/UI deve conter:</strong></p>
+<ul>
+    <li><strong>Hierarquia visual clara</strong> – mostrar o que é mais importante primeiro.</li>
+    <li><strong>Consistência</strong> – mesmos padrões em toda a interface.</li>
+    <li><strong>Feedback imediato</strong> – o sistema responde a cada ação do usuário.</li>
+    <li><strong>Simplicidade</strong> – menos passos para fazer tarefas comuns.</li>
+    <li><strong>Acessibilidade (WCAG)</strong> – contraste, navegação por teclado, leitores de tela.</li>
+    <li><strong>Prevenção de erros</strong> – evitar que o usuário faça coisas erradas.</li>
+    <li><strong>Controle do usuário</strong> – desfazer/refazer ações facilmente.</li>
+</ul>
+
+<p><strong>Exemplo de aplicação de UX/UI em um produto:</strong></p>
+<p><strong>Produto:</strong> Aplicativo Nubank (mobile banking).</p>
+<p><strong>O que ele faz bem:</strong></p>
+<ul>
+    <li>Na tela inicial, o saldo e o botão de pagar são os elementos maiores e mais visíveis (hierarquia clara).</li>
+    <li>Funções menos usadas (investir, cartão) ficam acessíveis com poucos toques, sem poluir a tela (simplicidade).</li>
+    <li>Ao fazer um Pix, aparece animação e notificação imediata (feedback).</li>
+    <li>Botão de ajuda vibra levemente ao toque (microinteração).</li>
+    <li>Tem modo de alto contraste e funciona com VoiceOver (acessibilidade).</li>
+</ul>
+
+<!-- ===== QUESTÃO 3 ===== -->
+<h2>3. Resumo dos 2 artigos postados na plataforma (Nielsen Norman Group)</h2>
+
+<p><strong>Artigo 1: <em>Accordion Editing and Apple Picking</em> (Sarah, Mugunthan, Nielsen, 2023)</strong></p>
+<p>O artigo estudou como as pessoas realmente usam chatbots de IA como o ChatGPT. Descobriu que ninguém consegue o resultado perfeito de primeira. Os usuários ficam pedindo para a IA encurtar ou alongar o texto várias vezes – isso é a "edição sanfona". Também precisam copiar e colar respostas anteriores para pedir mudanças em partes específicas – é a "colheita de maçãs". A conclusão é que as interfaces de chat atuais são ruins para esse tipo de trabalho iterativo. Seria melhor poder editar o texto diretamente e selecionar partes com o mouse.</p>
+
+<p><strong>Artigo 2: <em>The 4 Degrees of Anthropomorphism of Generative AI</em> (NN/g, 2023)</strong></p>
+<p>O artigo mostra que as pessoas tratam os chatbots como se fossem humanos, mesmo sabendo que são máquinas. Isso acontece em quatro níveis: (1) educação básica – dizer "por favor" e "obrigado"; (2) reforço – elogiar ou xingar a IA achando que ela vai aprender; (3) roleplay – pedir para a IA "agir como" um especialista (gerente, médico, etc.); (4) companheirismo – criar amizade ou até romance com a IA, como acontece no aplicativo Replika. O problema é que a empresa não ensina como usar a IA direito, então as pessoas inventam suas próprias crenças sobre o que funciona.</p>
+
+<!-- ===== REFERÊNCIAS ===== -->
+<div class="ref">
+    <h3>Referências</h3>
+    <ul>
+        <li>AHMED, A.; IMRAN, A. S. The role of large language models in UI/UX design: A systematic literature review. arXiv, 2025.</li>
+        <li>ZHANG, C. et al. Large Language Model-Brained GUI Agents: A Survey. TMLR, 2025.</li>
+        <li>SARAH; MUGUNTHAN, T.; NIELSEN, J. Accordion Editing and Apple Picking. Nielsen Norman Group, 2023.</li>
+        <li>NIELSEN NORMAN GROUP. The 4 Degrees of Anthropomorphism of Generative AI. NN/g, 2023.</li>
+        <li>NIELSEN, J. AI Improves Employee Productivity by 66%. NN/g, 2023.</li>
+        <li>NIELSEN, J. 18 previsões para 2026. UX Tigers, 2026.</li>
+        <li>BRYNJOLFSSON, E.; LI, D.; RAYMOND, L. Generative AI at Work. NBER, 2023.</li>
+        <li>NOY, S.; ZHANG, W. Experimental Evidence on the Productivity Effects of Generative AI. SSRN, 2023.</li>
+        <li>PENG, S. et al. The Impact of AI on Developer Productivity. arXiv, 2023.</li>
+        <li>MARRIOTT, H.; PITARDI, V. The influence of AI Friendship Apps on well-being and addiction. Psychology & Marketing, 2023.</li>
+    </ul>
+</div>
+
 </body>
 </html>
